@@ -1,0 +1,26 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+	<TargetFrameworks>netcoreapp2.2;netcoreapp3.0;netcoreapp3.1;net452;net50</TargetFrameworks>
+	<AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
+	<Platforms>AnyCPU;x86;x64</Platforms>
+	<Version>1.0.0</Version>
+	<Authors>macmillan</Authors>
+	<AssemblyVersion>1.0.0.0</AssemblyVersion>
+	<FileVersion>1.0.0.0</FileVersion>
+	<PackageProjectUrl>https://github.com/ltibm90/TextEngineBBCode</PackageProjectUrl>
+	<GeneratePackageOnBuild>false</GeneratePackageOnBuild>
+	<RepositoryUrl>https://github.com/ltibm90/TextEngineBBCode</RepositoryUrl>
+	<PackageReleaseNotes>Initial</PackageReleaseNotes>
+	<Description>TextEngine BBCode</Description>
+	<RootNamespace>TextEngine.BBCode</RootNamespace>
+	<PackageId>TextEngine.BBCode</PackageId>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Microsoft.CSharp" Version="4.7.0" />
+    <PackageReference Include="TextEngine" Version="1.2.2.1" />
+  </ItemGroup>
+
+
+</Project>
