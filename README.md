@@ -4,6 +4,16 @@ BBCode converter extensions for TextEngine
 
 ## Nuget 
 
+**Requirements**
+[Text Engine](https://www.nuget.org/packages/TextEngine)
+
+or
+
+[Text Engine](https://www.nuget.org/packages/TextEngine.x86)
+
+[Microsoft.CSharp](https://www.nuget.org/packages/Microsoft.CSharp/)
+
+
 **Installation**
 
 Install-Package TextEngine.BBCode
