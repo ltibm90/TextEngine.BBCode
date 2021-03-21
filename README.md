@@ -32,11 +32,16 @@ Install-Package TextEngine.BBCode.x86
           //Multiple tag format.
           evulator.SetMultipleTag(new string[] { "i", "u", "s" }, "<{%TagName}>{%Text}</{%TagName}>");
           
+          evulator.SetTag("test", "{%GetAttribute('name')} {%Text}");
+          
           //\n to <br />\r\n
           evulator.SetMap('\n', "<br />\r\n");
           
           //Output: <b><i>Bold</i></b>
           string converted = evulator.EvulateBBCode("[B][I]Bold[I][/B]");
+          
+          //Output: name Content text
+          string converted2 = evulator.EvulateBBCode("[test name=name]Content text[/test]");
           
 ```
 
