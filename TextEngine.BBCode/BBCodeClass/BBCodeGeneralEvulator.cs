@@ -31,8 +31,7 @@ namespace TextEngine.BBCode
             {
                 Result = TextEvulateResultEnum.EVULATE_DEPTHSCAN
             };
-            if (tag.AutoClosed) return result;
-
+            if (tag.AutoClosed && tag.SubElementsCount == 0) return result;
             var bbcodeInfo = this.BBCodeEvulator.GetTag(tag.ElemName);
             if(bbcodeInfo == null || !bbcodeInfo.Enabled)
             {

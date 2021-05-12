@@ -44,6 +44,11 @@ namespace TextEngine.BBCode.Test
             evulator.SetTag("font", "<font face=\"{%TagAttrib}\">{%Text}</font>");
             evulator.SetTag("center", new BBCodeInfo().SetCustomHandler(typeof(CustomBBHandler)));
             evulator.SetTag("link", "<a href=\"{%link + GetAttribute('id')}\">{%Text}</a>");
+            evulator.SetTag("li", new BBCodeInfo().SetCustomHandler(typeof(CustomBBLiHandler)));
+            evulator.SetTag("*", "<li>{%Text}</li>");
+            //Prevent auto creation for not closed tag.
+            evulator.PreventAutoCreation("*");
+
 
             //\n to <br />\r\n
             evulator.SetMap('\n', "<br />\r\n");
@@ -55,6 +60,10 @@ namespace TextEngine.BBCode.Test
             evulator.SetAlias("color", "font");
             //Size can be closed with Font
             evulator.SetAlias("size", "font");
+
+
+
+
             ConvertShow("[b]Bold[/b]");
             ConvertShow("[B]Bold [I]Italic[/I] [U]Underline[/U][/B]");
             ConvertShow("[LINK id=12345]Link Text[/LINK]");
@@ -63,7 +72,8 @@ namespace TextEngine.BBCode.Test
             ConvertShow("[CENTER]Custom BB Evulator[/CENTER]");
             ConvertShow("[IMG]https://www.site.com/image.jpg[/IMG]");
             ConvertShow("[URL=@site]Site[/URL]");
-
+            ConvertShow("[LI][*]item1[*]item2[*]item3[/LI]");
+            ConvertShow("[LI=1][*]item1[*]item2[*]item3[/LI]");
             Console.ReadKey();
 
 

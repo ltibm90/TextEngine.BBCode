@@ -12,6 +12,7 @@ namespace TextEngine.BBCode.Test
     {
         public override void TagStart()
         {
+
             this.Result.Text = "<div style='text-align: center'>";
             //base.TagStart();
         }

@@ -10,6 +10,7 @@ namespace TextEngine.BBCode
     public class BBCodeEvulator
     {
         private Dictionary<string, BBCodeInfo> BBCodes { get; set; }
+        public BBCodeInfo DefaultBBCodeInfo { get; set; }
         public Dictionary<string, object> PreDefinitions { get; private set; }
         private readonly TextEvulator evulator;
 
@@ -31,6 +32,17 @@ namespace TextEngine.BBCode
             {
                 this.SetTag(bbcodes[i], info);
             }
+        }
+        /// <summary>
+        /// Set default tag
+        /// </summary>
+        /// <param name="info">BBCode Info</param>
+        public BBCodeInfo SetDefaultTag(string content, BBCodeInfoFlags flags = 0)
+        {
+
+            BBCodeInfo info = new BBCodeInfo(content, flags);
+            this.DefaultBBCodeInfo = info;
+            return info;
         }
         /// <summary>
         /// Set single tag definition, with string
@@ -65,7 +77,8 @@ namespace TextEngine.BBCode
             evulator.CustomDataSingle = this;
 
             //Disable lastslash character(e.g [TEST /])
-            evulator.TagInfos["*"].Flags = TextElementFlags.TEF_DisableLastSlash;
+            //evulator.TagInfos["*"].Flags = TextElementFlags.TEF_DisableLastSlash;
+            evulator.TagInfos.Default.Flags = TextElementFlags.TEF_DisableLastSlash;
             evulator.EvulatorTypes.GeneralType = typeof(BBCodeGeneralEvulator);
             evulator.LeftTag = '[';
             evulator.RightTag = ']';
@@ -101,14 +114,18 @@ namespace TextEngine.BBCode
         {
             if (this.BBCodes.TryGetValue(bbcode, out BBCodeInfo info)) return info;
             //Find default tag...
-            this.BBCodes.TryGetValue("*", out info);
-            return info;
+           
+            return this.DefaultBBCodeInfo;
 
         }
 
         public void SetAutoClosed(string tagname)
         {
             this.evulator.TagInfos[tagname].Flags |= TextElementFlags.TEF_AutoClosedTag;
+        }
+        public void PreventAutoCreation(string tagname)
+        {
+            this.evulator.TagInfos[tagname].Flags |= TextElementFlags.TEF_PreventAutoCreation | TextElementFlags.TEF_AutoCloseIfSameTagFound;
         }
         public void SetMap(char cur, string target)
         {
