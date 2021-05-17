@@ -4,14 +4,14 @@
 	<TargetFrameworks>netcoreapp2.2;netcoreapp3.0;netcoreapp3.1;net452;net50</TargetFrameworks>
 	<AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
 	<Platforms>AnyCPU;x86;x64</Platforms>
-	<Version>1.0.3</Version>
+	<Version>1.0.3.1</Version>
 	<Authors>macmillan</Authors>
-	<AssemblyVersion>1.0.3.0</AssemblyVersion>
-	<FileVersion>1.0.3.0</FileVersion>
+	<AssemblyVersion>1.0.3.1</AssemblyVersion>
+	<FileVersion>1.0.3.1</FileVersion>
 	<PackageProjectUrl>https://github.com/ltibm90/TextEngine.BBCode</PackageProjectUrl>
 	<GeneratePackageOnBuild>true</GeneratePackageOnBuild>
 	<RepositoryUrl>https://github.com/ltibm90/TextEngine.BBCode</RepositoryUrl>
-	<PackageReleaseNotes>Updated TextEngine to 1.4.2.1</PackageReleaseNotes>
+	<PackageReleaseNotes>Updated TextEngine to 1.4.2.2</PackageReleaseNotes>
 	<Description>BBCode converter extension for TextEngine</Description>
 	<RootNamespace>TextEngine.BBCode</RootNamespace>
 	<PackageId>TextEngine.BBCode</PackageId>
@@ -19,7 +19,7 @@
 
   <ItemGroup>
     <PackageReference Include="Microsoft.CSharp" Version="4.7.0" />
-    <PackageReference Include="TextEngine" Version="1.4.2.1" />
+    <PackageReference Include="TextEngine" Version="1.4.2.2" />
   </ItemGroup>
 
 
