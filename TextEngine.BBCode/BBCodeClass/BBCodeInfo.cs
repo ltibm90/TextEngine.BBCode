@@ -62,10 +62,8 @@ namespace TextEngine.BBCode
             {
                 if(this.tagformat == null)
                 {
-                    this.tagformat = new ParFormat(this.TagText)
-                    {
-                        SurpressError = true
-                    };
+                    this.tagformat = new ParFormat(this.TagText);
+                    this.tagformat.ParAttributes.SurpressError = true;
                 }
                 return this.tagformat;
             }
